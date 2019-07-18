@@ -1,4 +1,4 @@
-"""django_notion URL Configuration
+"""mesto URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
@@ -19,6 +19,17 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 
+from blog.views import home_page, blog_home, blog_post, blog_category
+from django.views.generic import TemplateView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    # path('', TemplateView.as_view(template_name='index.html'), name='index'),
+    path('', home_page, name='index'),
+    path('blog', blog_home, name='blog_home'),
+    path('blog/category/<int:code>', blog_category, name='blog_category'),
+    path('blog/<int:code>', blog_post, name='blog_post'),
+    path('about', TemplateView.as_view(template_name='about.html'), name='about'),
+    path('contact', TemplateView.as_view(template_name='contact.html'), name='contact'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
