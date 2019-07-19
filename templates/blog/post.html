@@ -4,9 +4,9 @@
 
 {% block title %}Blog{% endblock %}
 
-<!--{% block page_title %}{{ article.title }}{% endblock %}-->
+{% block page_title %}{{ article.title }}{% endblock %}
 
-<!--{% block second_title %}{{ article.author.username}}{% endblock %}-->
+{#{% block second_title %}{{ article.author.username}}{% endblock %}#}
 
 {% block content %}
       <!-- Post Content Column -->
@@ -32,7 +32,7 @@
         <img class="img-fluid" src="{{article.image.url}}" alt="">
 
         <h1 class="mt-4 mb-3">
-          {{ article.title }}
+{#          {{ article.title }}#}
         </h1>
 
         <!--<hr>-->
