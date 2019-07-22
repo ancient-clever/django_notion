@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 
 
 class Category(models.Model):
+    # model for categories
     name = models.CharField(max_length=150, unique=True)
     image = models.ImageField(upload_to='uploads', null=True)
     description = models.TextField(null=True)
@@ -16,6 +17,7 @@ class Category(models.Model):
 
 
 class Article(models.Model):
+    # model for article
     category = models.ForeignKey(Category, null=True, blank=True, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -30,5 +32,6 @@ class Article(models.Model):
         return self.title
 
     def note_view(self):
+        # views counter
         self.views += 1
         self.save()
