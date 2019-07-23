@@ -25,7 +25,6 @@ from django.views.generic import TemplateView
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    # path('', TemplateView.as_view(template_name='index.html'), name='index'),
     path('', home_page, name='index'),
     path('blog', blog_home, name='blog_home'),
     path('blog/category/<int:code>', blog_category, name='blog_category'),
